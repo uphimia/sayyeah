@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <!-- 微信专用优化标签 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <!-- 微信分享卡片信息 -->
+    <meta property="og:title" content="SeyYeah Travel | 2025 综合报价单">
+    <meta property="og:description" content="塞舌尔奢华旅行体验 · 专业代理价目表">
+    <meta property="og:image" content="https://via.placeholder.com/300/3498db/ffffff?text=SY">
+    
+    <title>SeyYeah Travel | 2025 综合报价单</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        :root {
+            --primary: #3498db;
+            --secondary: #2c3e50;
+            --accent: #e74c3c;
+            --success: #27ae60;
+            --warning: #f39c12;
+            --light-bg: #f8f9fa;
+            --border: #e1e4e8;
+            --text: #333;
+            --text-light: #666;
+            --card-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            --wechat-bg: #f1f1f1;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: var(--wechat-bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding-bottom: env(safe-area-inset-bottom);
+            -webkit-font-smoothing: antialiased;
+            /* 防止微信字体放大 */
+            -webkit-text-size-adjust: 100% !important;
+            text-size-adjust: 100% !important;
+        }
+        
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            background: white;
+            overflow: hidden;
+        }
+        
+        /* 微信顶部导航样式 */
+        .wechat-header {
+            background: linear-gradient(120deg, #3498db 0%, #2c3e50 100%);
+            padding: 12px 16px;
+            color: white;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .wechat-header .back-btn {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+        
+        .wechat-header .title {
+            font-size: 18px;
+            font-weight: 600;
+            flex: 1;
+            text-align: center;
+        }
+        
+        .wechat-header .action-btn {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+        
+        /* 页眉设计 */
+        .header {
+            background: linear-gradient(120deg, #3498db 0%, #2c3e50 100%);
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            border: 2px solid #fff;
+        }
+        
+        .logo-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .header-text {
+            color: white;
+        }
+        
+        .header-text h1 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        
+        .header-text p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .validity {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* 选项卡导航 */
+        .tabs {
+            display: flex;
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 0 8px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        .tabs::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .tab {
+            padding: 12px 16px;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--text-light);
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            white-space: nowrap;
+            font-size: 0.9rem;
+        }
+        
+        .tab:hover {
+            color: var(--primary);
+        }
+        
+        .tab.active {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+        }
+        
+        .tab i {
+            margin-right: 4px;
+            font-size: 0.9rem;
+        }
+        
+        /* 内容区域 */
+        .content {
+            padding: 16px;
+            background: var(--light-bg);
+            min-height: calc(100vh - 200px);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .section {
+            background: white;
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--light-bg);
+        }
+        
+        .section-title {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .section-title i {
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+        
+        /* 搜索和过滤 */
+        .controls {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+        
+        .search-box {
+            flex: 1;
+            min-width: 100%;
+            position: relative;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 12px 16px 12px 40px;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            background: #f7f7f7;
+        }
+        
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+        
+        .search-box i {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-light);
+        }
+        
+        .filter-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+        
+        .filter-btn {
+            padding: 8px 14px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.85rem;
+            flex: 1;
+            text-align: center;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        /* 产品表格 */
+        .products-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid var(--border);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+        
+        .product-header {
+            padding: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .product-id {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .product-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        
+        .recommended {
+            background: #FFF9DB;
+            color: #E67700;
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .product-body {
+            padding: 16px;
+        }
+        
+        .product-detail {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dashed var(--border);
+            font-size: 0.95rem;
+        }
+        
+        .product-detail:last-child {
+            border-bottom: none;
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .detail-value {
+            text-align: right;
+            color: var(--text-light);
+        }
+        
+        .price-tag {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1rem;
+        }
+        
+        .child-price {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+        
+        .included {
+            color: var(--success);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .not-included {
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .product-notes {
+            background: #f8f9fa;
+            padding: 12px;
+            margin-top: 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+        
+        .highlight {
+            color: var(--accent);
+            font-weight: 500;
+        }
+        
+        /* 页脚设计 */
+        .footer {
+            background: var(--secondary);
+            color: white;
+            padding: 24px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            color: var(--primary);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+        
+        .disclaimer {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+        
+        .disclaimer p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        
+        .disclaimer p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .disclaimer i {
+            margin-top: 2px;
+        }
+        
+        /* 微信分享提示 */
+        .share-tip {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 12px;
+            text-align: center;
+            font-size: 14px;
+            z-index: 1000;
+            display: none;
+        }
+        
+        .share-tip i {
+            margin-left: 5px;
+            animation: pointRight 1.5s infinite;
+        }
+        
+        @keyframes pointRight {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(5px); }
+        }
+        
+        /* 微信底部安全区域 */
+        @supports (padding-bottom: env(safe-area-inset-bottom)) {
+            body {
+                padding-bottom: env(safe-area-inset-bottom);
+            }
+        }
+        
+        /* 微信适配优化 */
+        .wechat-optimized {
+            -webkit-user-select: none;
+            user-select: none;
+            touch-action: manipulation;
+        }
+        
+        /* 加载指示器 */
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .loading i {
+            animation: spin 1s linear infinite;
+            margin-right: 8px;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* 微信强制横屏提示 */
+        .landscape-tip {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            color: white;
+            z-index: 2000;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .landscape-tip i {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body class="wechat-optimized">
+    <!-- 微信横屏提示 -->
+    <div class="landscape-tip">
+        <i class="fas fa-sync-alt"></i>
+        <h2>请旋转手机以获得最佳体验</h2>
+        <p>此页面需要竖屏模式查看</p>
+    </div>
+    
+    <!-- 微信顶部导航模拟 -->
+    <div class="wechat-header">
+        <div class="back-btn"><i class="fas fa-chevron-left"></i></div>
+        <div class="title">SeyYeah Travel</div>
+        <div class="action-btn"><i class="fas fa-ellipsis-h"></i></div>
+    </div>
+    
+    <!-- 微信分享提示 -->
+    <div class="share-tip">
+        点击右上角 <i class="fas fa-share-alt"></i> 分享给朋友
+    </div>
+    
+    <div class="container">
+        <div class="header">
+            <div class="logo-area">
+                <div class="logo-img">
+                    <img src="https://via.placeholder.com/80/3498db/ffffff?text=SY" alt="SeyYeah Travel Logo">
+                </div>
+                <div class="header-text">
+                    <h1>SeyYeah Travel</h1>
+                    <p>2025 奢华旅行体验 · 专业代理价目表</p>
+                </div>
+            </div>
+            <div class="validity">
+                <i class="fas fa-calendar-alt"></i> 有效期: 2025年1月6日 - 2025年8月31日
+            </div>
+        </div>
+        
+        <div class="tabs">
+            <div class="tab active" data-tab="mahe"><i class="fas fa-ship"></i> 马埃岛</div>
+            <div class="tab" data-tab="praslin"><i class="fas fa-umbrella-beach"></i> 普拉兰</div>
+            <div class="tab" data-tab="transfer"><i class="fas fa-car"></i> 接送</div>
+            <div class="tab" data-tab="tickets"><i class="fas fa-ticket-alt"></i> 船票</div>
+            <div class="tab" data-tab="helicopter"><i class="fas fa-helicopter"></i> 直升机</div>
+            <div class="tab" data-tab="vip"><i class="fas fa-crown"></i> VIP</div>
+        </div>
+        
+        <div class="content">
+            <!-- 马埃岛出发内容 -->
+            <div class="tab-content active" id="mahe">
+                <div class="controls">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="search-mahe" placeholder="搜索马埃岛产品...">
+                    </div>
+                    <div class="filter-group">
+                        <button class="filter-btn active">全部</button>
+                        <button class="filter-btn">一日游</button>
+                        <button class="filter-btn">海钓</button>
+                        <button class="filter-btn">包车</button>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-header">
+                        <h2 class="section-title"><i class="fas fa-ship"></i> 马埃岛出发一日游</h2>
+                    </div>
+                    
+                    <div class="products-grid">
+                        <!-- 产品1 -->
+                        <div class="product-card">
+                            <div class="product-header">
+                                <div class="product-id">1</div>
+                                <h3 class="product-name">
+                                    圣安妮海洋公园一日游
+                                    <span class="recommended"><i class="fas fa-fire"></i> 爆款推荐</span>
+                                </h3>
+                            </div>
+                            <div class="product-body">
+                                <div class="product-detail">
+                                    <span class="detail-label"><i class="fas fa-user"></i> 成人价格</span>
+                                    <span class="detail-value price-tag">115€</span>
+                                </div>
+                                <div class="product-detail">
+                                    <span class="detail-label"><i class="fas fa-child"></i> 儿童价格</span>
+                                    <span class="detail-value child-price">65€ (2-11岁)</span>
+                                </div>
+                                <div class="product-detail">
+                                    <span class="detail-label"><i class="fas fa-utensils"></i> 餐食</span>
+                                    <span class="detail-value included"><i class="fas fa-check"></i> BBQ午餐</span>
+                                </div>
+                                <div class="product-notes">
+                                    <p><i class="fas fa-info-circle"></i> 含魔岩岛登岛费-拼车/玻璃底船拼船 沙滩烧烤体验</p>
+                                    <p><i class="fas fa-users"></i> 2人起订 | <i class="fas fa-clock"></i> 10:00发船</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 产品2 -->
+                        <div class="product-card">
+                            <div class="product-header">
+                                <div class="product-id">2</div>
+                                <h3 class="product-name">马埃岛维多利亚山海探索一日游</h3>
+                            </div>
+                            <div class="product-body">
+                                <div class="product-detail">
+                                    <span class="detail-label"><i class="fas fa-user"></i> 成人价格</span>
+                                    <span class="detail-value price-tag">95€</span>
+                                </div>
+                                <div class="product-detail">
+                                    <span class="detail-label"><i class="fas fa-child"></i> 儿童价格</span>
+                                    <span class="detail-value child-price">50€ (2-11岁)</span>
+                                </div>
+                                <div class="product-detail">
+                                    <span class="detail-label"><i class="fas fa-utensils"></i> 餐食</span>
+                                    <span class="detail-value included"><i class="fas fa-check"></i> 含午餐</span>
+                                </div>
+                                <div class="product-notes">
+                                    <p><i class="fas fa-info-circle"></i> 含女王台门票</p>
+                                    <p><i class="fas fa-users"></i> 4人成团 | <i class="fas fa-calendar-times"></i> 周日及公众假期不发团</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 产品3 -->
+                        <div class="product-card">
+                            <div class="product-header">
+                                <div class="product-id">3</div>
+                                <h3 class="product-name">
+                                    <i class="fas fa-star"></i> 马埃岛南部秘境之旅
+                                </h3>
+                            </div>
+                            <div class="product-body">
+                                <div class="product-detail">
+                                    <span class="detail-label"><i class="fas fa-user"></i> 成人价格</span>
+                                    <span class="detail-value price-tag">100€</span>
+                                </div>
+                                <div class="product-detail">
+                                    <span class="detail-label"><i class="fas fa-child"></i> 儿童价格</span>
+                                    <span class="detail-value child-price">55€ (2-11岁)</span>
+                                </div>
+                                <div class="product-detail">
+                                    <span class="detail-label"><i class="fas fa-utensils"></i> 餐食</span>
+                                    <span class="detail-value included"><i class="fas fa-check"></i> 含午餐</span>
+                                </div>
+                                <div class="product-notes">
+                                    <p><i class="fas fa-info-circle"></i> 赠送香料园欢迎饮品 & 独家海椰子饮品品尝</p>
+                                    <p><i class="fas fa-info-circle"></i> 含香料园门票 & 海椰子工厂入场</p>
+                                    <p><i class="fas fa-users"></i> 4人成团 | <i class="fas fa-calendar-times"></i> 周日及公众假期不发团</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-header">
+                        <h2 class="section-title"><i class="fas fa-anchor"></i> 包船海钓体验</h2>
+                    </div>
+                    
+                    <div class="products-grid">
+                        <!-- 海钓产品1 -->
+                        <div class="product-card">
+                            <div class="product-header">
+                                <div class="product-id">1</div>
+                                <h3 class="product-name">马埃岛包船海钓+沙滩浮潜-全天6-8h（性价比快艇）</h3>
+                            </div>
+                            <div class="product-body">
+                                <div class="product-detail">
+                                    <span class="detail-label"><i class="fas fa-users"></i> 人数限制</span>
+                                    <span class="detail-value">1-2人: 710€<br>3-4人: 750€<br>5-6人: 780€</span>
+                                </div>
+                                <div class="product-detail">
+                                    <span class="detail-label"><i class="fas fa-utensils"></i> 餐食</span>
+                                    <span class="detail-value included"><i class="fas fa-check"></i> 独家秘制中式BBQ午餐<br>提供水&软饮</span>
+                                </div>
+                                <div class="product-notes">
+                                    <p><i class="fas fa-clock"></i> 6-8小时，含接驳</p>
+                                    <p><i class="fas fa-map-marker-alt"></i> 北部上船</p>
+                                    <p class="highlight"><i class="fas fa-exclamation-triangle"></i> 远海钓鱼需增加费用</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-header">
+                        <h2 class="section-title"><i class="fas fa-car"></i> 接送价格</h2>
+                    </div>
+                    
+                    <div class="products-grid">
+                        <!-- 接送产品1 -->
+                        <div class="product-card">
+                            <div class="product-header">
+                                <div class="product-id">1</div>
+                                <h3 class="product-name">马埃岛机场-Catcoco码头/伊甸岛专车接送</h3>
+                            </div>
+                            <div class="product-body">
+                                <div class="product-detail">
+                                    <span class="detail-label"><i class="fas fa-users"></i> 人数限制</span>
+                                    <span class="detail-value">1-3人: 45€<br>4-5人: 55€</span>
+                                </div>
+                                <div class="product-detail">
+                                    <span class="detail-label"><i class="fas fa-hotel"></i> 适用酒店</span>
+                                    <span class="detail-value">Catcoco码头<br>Eden Island</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 普拉兰岛内容 -->
+            <div class="tab-content" id="praslin">
+                <div class="controls">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="search-praslin" placeholder="搜索普拉兰岛产品...">
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-header">
+                        <h2 class="section-title"><i class="fas fa-umbrella-beach"></i> 普拉兰岛出发精品小团</h2>
+                    </div>
+                    
+                    <div class="products-grid">
+                        <!-- 普拉兰产品示例 -->
+                        <div class="product-card">
+                            <div class="product-header">
+                                <div class="product-id">1</div>
+                                <h3 class="product-name">
+                                    <i class="fas fa-star"></i> 库瑞尔/圣皮埃尔岛一日游
+                                </h3>
+                            </div>
+                            <div class="product-body">
+                                <div class="product-detail">
+                                    <span class="detail-label"><i class="fas fa-user"></i> 成人价格</span>
+                                    <span class="detail-value price-tag">135€</span>
+                                </div>
+                                <div class="product-detail">
+                                    <span class="detail-label"><i class="fas fa-child"></i> 儿童价格</span>
+                                    <span class="detail-value child-price">65€ (2-11岁)</span>
+                                </div>
+                                <div class="product-detail">
+                                    <span class="detail-label"><i class="fas fa-utensils"></i> 餐食</span>
+                                    <span class="detail-value included"><i class="fas fa-check"></i> BBQ午餐</span>
+                                </div>
+                                <div class="product-notes">
+                                    <p><i class="fas fa-users"></i> 2人成团</p>
+                                    <p><i class="fas fa-clock"></i> 09:15出发 - 16:10结束</p>
+                                    <p><i class="fas fa-ship"></i> 灵活快艇精品小包团&沙滩烧烤体验</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 其他选项卡内容 -->
+            <div class="tab-content" id="transfer">
+                <div class="loading">
+                    <i class="fas fa-spinner"></i> 正在加载接送服务信息...
+                </div>
+            </div>
+            
+            <div class="tab-content" id="tickets">
+                <div class="loading">
+                    <i class="fas fa-spinner"></i> 正在加载船票预订信息...
+                </div>
+            </div>
+            
+            <div class="tab-content" id="helicopter">
+                <div class="loading">
+                    <i class="fas fa-spinner"></i> 正在加载直升机观光信息...
+                </div>
+            </div>
+            
+            <div class="tab-content" id="vip">
+                <div class="loading">
+                    <i class="fas fa-spinner"></i> 正在加载VIP升级信息...
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="contact-info">
+                <h3>联系我们</h3>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i> +248 4321 9876
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i> booking@seyyeahtravel.com
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i> Eden Plaza, Victoria, Mahe, Seychelles
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-weixin"></i> SeyYeahTravel
+                </div>
+            </div>
+            
+            <div class="disclaimer">
+                <p><i class="fas fa-info-circle"></i> 操作费15欧/人 · 入境网签代申请15欧元/人</p>
+                <p><i class="fas fa-info-circle"></i> 一日游行程不含每人每天5欧元/5美金导游小费</p>
+                <p><i class="fas fa-info-circle"></i> 所有价格以欧元结算，最终解释权归SeyYeah Travel所有</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 微信环境检测
+        const isWeChat = /MicroMessenger/i.test(navigator.userAgent);
+        
+        // 显示微信分享提示
+        if (isWeChat) {
+            document.querySelector('.share-tip').style.display = 'block';
+            setTimeout(() => {
+                document.querySelector('.share-tip').style.display = 'none';
+            }, 5000);
+        }
+        
+        // 检测横屏模式
+        function checkOrientation() {
+            if (window.matchMedia("(orientation: landscape)").matches) {
+                document.querySelector('.landscape-tip').style.display = 'flex';
+            } else {
+                document.querySelector('.landscape-tip').style.display = 'none';
+            }
+        }
+        
+        // 初始检测
+        checkOrientation();
+        // 屏幕旋转时检测
+        window.addEventListener('orientationchange', checkOrientation);
+        // 窗口大小变化时检测
+        window.addEventListener('resize', checkOrientation);
+        
+        // 选项卡切换功能
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // 移除所有活动状态
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                
+                // 添加当前活动状态
+                this.classList.add('active');
+                const tabId = this.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+                
+                // 模拟加载效果
+                if (tabId !== 'mahe' && tabId !== 'praslin') {
+                    const loading = document.querySelector(`#${tabId} .loading`);
+                    setTimeout(() => {
+                        loading.innerHTML = '<i class="fas fa-info-circle"></i> 该分类暂无更多产品信息，请联系客服获取详情';
+                    }, 1000);
+                }
+            });
+        });
+        
+        // 搜索功能
+        document.querySelectorAll('input[type="text"]').forEach(input => {
+            input.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                const tabId = this.id.split('-')[1];
+                const products = document.querySelectorAll(`#${tabId} .product-card`);
+                let hasResults = false;
+                
+                products.forEach(product => {
+                    const productText = product.textContent.toLowerCase();
+                    if (productText.includes(searchTerm)) {
+                        product.style.display = 'block';
+                        hasResults = true;
+                    } else {
+                        product.style.display = 'none';
+                    }
+                });
+                
+                // 显示无结果提示
+                const noResults = document.createElement('div');
+                noResults.className = 'loading';
+                noResults.innerHTML = '<i class="fas fa-search"></i> 没有找到匹配的产品';
+                
+                const container = document.querySelector(`#${tabId} .products-grid`);
+                const existingNoResults = container.querySelector('.loading');
+                
+                if (!hasResults && !existingNoResults) {
+                    container.appendChild(noResults);
+                } else if (hasResults && existingNoResults) {
+                    existingNoResults.remove();
+                }
+            });
+        });
+        
+        // 筛选按钮功能
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                // 在实际应用中，这里会添加筛选逻辑
+                // 此处简化处理
+            });
+        });
+        
+        // 微信后退按钮功能
+        document.querySelector('.back-btn').addEventListener('click', function() {
+            if (history.length > 1) {
+                history.back();
+            } else {
+                // 如果没有历史记录，则关闭页面
+                if (isWeChat) {
+                    // 在微信中无法直接关闭页面，显示提示
+                    alert('点击右上角关闭页面');
+                } else {
+                    window.close();
+                }
+            }
+        });
+        
+        // 微信右上角菜单
+        document.querySelector('.action-btn').addEventListener('click', function() {
+            if (isWeChat) {
+                // 在微信中触发分享菜单
+                alert('点击右上角分享按钮可分享此页面');
+            } else {
+                // 在其他浏览器中显示菜单选项
+                alert('分享功能在其他浏览器中可用');
+            }
+        });
+        
+        // 防止微信下拉出现网页地址
+        document.body.addEventListener('touchmove', function(e) {
+            e.preventDefault();
+        }, { passive: false });
+        
+        // 微信内禁止长按菜单
+        if (isWeChat) {
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+            });
+        }
+    </script>
+</body>
+</html>
